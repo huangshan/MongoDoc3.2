@@ -1,0 +1,345 @@
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: mongodb-manual 3.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-05-31 19:15-0400\n"
+"PO-Revision-Date: 2016-07-05 15:17+0800\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"X-Generator: Poedit 1.8.8\n"
+"Language: zh_CN\n"
+
+#: ../source/mongo.txt:3
+msgid "The ``mongo`` Shell"
+msgstr "``mongo`` shell"
+
+#: ../source/mongo.txt:0
+msgid "On this page"
+msgstr "本页内容"
+
+#: ../source/mongo.txt:14
+msgid "Introduction"
+msgstr "介绍"
+
+#: ../source/mongo.txt:16
+msgid ""
+"The :program:`mongo` shell is an interactive JavaScript interface to "
+"MongoDB. You can use the :program:`mongo` shell to query and update data as "
+"well as perform administrative operations."
+msgstr ""
+" :program:`mongo` shell是一个与MongoDB交互的JavaScript接口。你可以使用 :"
+"program:`mongo` shell查询和更新数据以及执行管理操作。"
+
+#: ../source/mongo.txt:20
+msgid ""
+"The :program:`mongo` shell is a component of the `MongoDB distributions "
+"<http://www.mongodb.org/downloads>`_. Once you have :doc:`installed and "
+"have started MongoDB </installation>`, connect the :program:`mongo` shell "
+"to your running MongoDB instance."
+msgstr ""
+" :program:`mongo` shell作为 `MongoDB distributions <http://www.mongodb.org/"
+"downloads>`_的一个组件。一旦你 :doc:`installed and have started MongoDB </"
+"installation>` ，即可以用 :program:`mongo` shell连接你运行的MongoDB实例。"
+
+#: ../source/mongo.txt:25
+msgid ""
+"Most examples in the :doc:`MongoDB Manual </index>` use the :program:"
+"`mongo` shell; however, many :doc:`drivers </applications/drivers>` provide "
+"similar interfaces to MongoDB."
+msgstr ""
+" :doc:`MongoDB Manual </index>` 中大多数示例使用 :program:`mongo` shell ；不"
+"过，很多 :doc:`drivers </applications/drivers>` 为MongoDB提供类似的接口。"
+
+#: ../source/mongo.txt:30
+msgid "Start the ``mongo`` Shell"
+msgstr "开始 ``mongo`` Shell"
+
+#: ../source/mongo.txt:33
+msgid ""
+"Ensure that MongoDB is running before attempting to start the :program:"
+"`mongo` shell."
+msgstr "在尝试开始 :program:`mongo` shell前请确保MongoDB实例正在运行。"
+
+#: ../source/mongo.txt:36
+msgid ""
+"To start the :program:`mongo` shell and connect to your :doc:`MongoDB </"
+"reference/program/mongod>` instance running on **localhost** with **default "
+"port**:"
+msgstr ""
+"开始使用 :program:`mongo` shell连接到你运行在**localhost默认端口号**的"
+"MongoDB实例。"
+
+#: ../source/mongo.txt:40
+msgid ""
+"At a prompt in a terminal window (or a command prompt for Windows), go to "
+"your ``<mongodb installation dir>``:"
+msgstr ""
+"在终端命窗口提示符（或Windows命令提示符）中，进入到你的Mongodb安装目录 "
+"``<mongodb  installation dir>``："
+
+#: ../source/mongo.txt:47
+msgid "Type ``./bin/mongo`` to start :program:`mongo`:"
+msgstr "输入``./bin/mongo``开始 :program:`mongo` 。"
+
+#: ../source/mongo.txt:53
+msgid ""
+"If you have added the ``<mongodb installation dir>/bin`` to the ``PATH`` "
+"environment variable, you can just type ``mongo`` instead of ``./bin/"
+"mongo``."
+msgstr ""
+"如果你已经添加``<mongodb 安装目录>/bin``到环境``PATH``变量，则你只需直接输入"
+"``mongo``开始。"
+
+#: ../source/mongo.txt:58
+msgid "Options"
+msgstr "选项"
+
+#: ../source/mongo.txt:60
+msgid ""
+"When you run :program:`mongo` without any arguments, the :program:`mongo` "
+"shell will attempt to connect to the MongoDB instance running on the "
+"``localhost`` interface on port ``27017``. To specify a different host or "
+"port number, as well as other options, see :ref:`examples of starting up "
+"mongo <mongo-usage-examples>` and :doc:`mongo reference </reference/program/"
+"mongo>` which provides details on the available options."
+msgstr ""
+"如果你不带任何参数运行 :program:`mongo` ，  :program:`mongo` shell将尝试连接"
+"运行在``localhost``端口号为``27017``的MongoDB实例。要指定不同的主机或端口"
+"号，以及其他选项，请参看 :ref:`examples of starting up mongo <mongo-usage-"
+"examples>` 与 :doc:`mongo reference </reference/program/mongo>` 提供的可用选"
+"项的详细内容。"
+
+#: ../source/mongo.txt:69
+msgid "``.mongorc.js`` File"
+msgstr "``.mongorc.js`` 文件"
+
+#: ../source/mongo.txt:71
+msgid ""
+"When starting, :program:`mongo` checks the user's :envvar:`HOME` directory "
+"for a JavaScript file named :ref:`.mongorc.js <mongo-mongorc-file>`. If "
+"found, :program:`mongo` interprets the content of :file:`.mongorc.js` "
+"before displaying the prompt for the first time. If you use the shell to "
+"evaluate a JavaScript file or expression, either by using the :option:`--"
+"eval <mongo --eval>` option on the command line or by specifying :ref:`a ."
+"js file to mongo <mongo-shell-file>`, :program:`mongo` will read the ``."
+"mongorc.js`` file *after* the JavaScript has finished processing. You can "
+"prevent ``.mongorc.js`` from being loaded by using the :option:`--norc` "
+"option."
+msgstr ""
+
+#: ../source/mongo.txt:86
+msgid "Working with the ``mongo`` Shell"
+msgstr "使用``mongo`` Shell"
+
+#: ../source/mongo.txt:88
+msgid "To display the database you are using, type ``db``:"
+msgstr "输入``db``，显示你当前正在使用的数据库："
+
+#: ../source/mongo.txt:94
+msgid ""
+"The operation should return ``test``, which is the default database. To "
+"switch databases, issue the ``use <db>`` helper, as in the following "
+"example:"
+msgstr ""
+"此操作将返回默认数据库``test``， 要切换数据库，使用``use <db>``，如下例所"
+"示："
+
+#: ../source/mongo.txt:102
+msgid ""
+"To list the available databases, use the helper ``show dbs``. See also :"
+"method:`db.getSiblingDB()` method to access a different database from the "
+"current database without switching your current database context (i.e. "
+"``db``)."
+msgstr ""
+"使用``show dbs``列出所有可用的数据库。在不切换当前数据库上下文（即 db）情况"
+"下，从当前数据库访问不同数据库，请参见 :method:`db.getSiblingDB()` 方法。"
+
+#: ../source/mongo.txt:107
+msgid ""
+"You can switch to non-existing databases. When you first store data in the "
+"database, such as by creating a collection, MongoDB creates the database. "
+"For example, the following creates both the database ``myNewDatabase`` and "
+"the :term:`collection` ``myCollection`` during the :method:`~db.collection."
+"insert()` operation:"
+msgstr ""
+"你可以切换到一个不存在的数据库。当你第一次向数据库存储数据，如通过创建一个集"
+"合，MongoDB将自动创建数据库。例如，当执行 :method:`~db.collection.insert()` "
+"操作期间，数据库``myNewDatabase`` 和 :term:`collection` ``myCollection``都将"
+"创建。"
+
+#: ../source/mongo.txt:118
+msgid ""
+"The :method:`db.myCollection.insert() <db.collection.insert()>` is one of "
+"the :doc:`methods available in the mongo shell </reference/method>`"
+msgstr ""
+" :method:`db.myCollection.insert() <db.collection.insert()>` 是 :doc:"
+"`methods available in the mongo shell </reference/method>` 之一"
+
+#: ../source/mongo.txt:121
+msgid "``db`` refers to the current database."
+msgstr "``db``指当前数据库。"
+
+#: ../source/mongo.txt:123
+msgid "``myCollection`` is the name of the collection."
+msgstr "``myCollection``是集合的名称。"
+
+#: ../source/mongo.txt:125
+msgid ""
+"If the :program:`mongo` shell does not accept the name of the collection, "
+"for instance if the name contains a space, hyphen, or starts with a number, "
+"you can use an alternate syntax to refer to the collection, as in the "
+"following:"
+msgstr ""
+"如果 :program:`mongo` shell不接受集合的名称，例如如果名称中包含空格，连字符"
+"\"-\"，或者以数字开始，你可以使用代替语法来指代集合，如下所示："
+
+#: ../source/mongo.txt:136
+msgid ""
+"For more documentation of basic MongoDB operations in the :program:`mongo` "
+"shell, see:"
+msgstr "更多 :program:`mongo` shell中的MongoDB基本操作请参看如下文档："
+
+#: ../source/mongo.txt:139 ../source/mongo.txt:240
+msgid ":gettingstarted:`Getting Started Guide </shell>`"
+msgstr ""
+
+#: ../source/mongo.txt:140
+msgid ":doc:`/tutorial/insert-documents`"
+msgstr ""
+
+#: ../source/mongo.txt:141
+msgid ":doc:`/tutorial/query-documents`"
+msgstr ""
+
+#: ../source/mongo.txt:142
+msgid ":doc:`/tutorial/update-documents`"
+msgstr ""
+
+#: ../source/mongo.txt:143
+msgid ":doc:`/tutorial/remove-documents`"
+msgstr ""
+
+#: ../source/mongo.txt:144
+msgid ":doc:`/reference/method`"
+msgstr ""
+
+#: ../source/mongo.txt:147
+msgid "Format Printed Results"
+msgstr "格式化打印结果"
+
+#: ../source/mongo.txt:149
+msgid ""
+"The :method:`db.collection.find()` method returns a :term:`cursor` to the "
+"results; however, in the :program:`mongo` shell, if the returned cursor is "
+"not assigned to a variable using the ``var`` keyword, then the cursor is "
+"automatically iterated up to 20 times to print up to the first 20 documents "
+"that match the query. The :program:`mongo` shell will prompt ``Type it`` to "
+"iterate another 20 times."
+msgstr ""
+" :method:`db.collection.find()` 方法返回一个 :term:`cursor` 到结果中；"
+
+#: ../source/mongo.txt:156
+msgid ""
+"To format the printed result, you can add the ``.pretty()`` to the "
+"operation, as in the following:"
+msgstr ""
+
+#: ../source/mongo.txt:163
+msgid ""
+"In addition, you can use the following explicit print methods in the :"
+"program:`mongo` shell:"
+msgstr ""
+
+#: ../source/mongo.txt:166
+msgid "``print()`` to print without formatting"
+msgstr ""
+
+#: ../source/mongo.txt:168
+msgid ""
+"``print(tojson(<obj>))`` to print with :term:`JSON` formatting and "
+"equivalent to ``printjson()``"
+msgstr ""
+
+#: ../source/mongo.txt:171
+msgid ""
+"``printjson()`` to print with :term:`JSON` formatting and equivalent to "
+"``print(tojson(<obj>))``"
+msgstr ""
+
+#: ../source/mongo.txt:174
+msgid ""
+"For more information and examples on cursor handling in the :program:"
+"`mongo` shell, see :doc:`/tutorial/iterate-a-cursor`. See also :ref:`mongo-"
+"shell-help-cursor` for list of cursor help in the :program:`mongo` shell."
+msgstr ""
+
+#: ../source/mongo.txt:180
+msgid "Multi-line Operations in the ``mongo`` Shell"
+msgstr ""
+
+#: ../source/mongo.txt:182
+msgid ""
+"If you end a line with an open parenthesis (``'('``), an open brace "
+"(``'{'``), or an open bracket (``'['``), then the subsequent lines start "
+"with ellipsis (``\"...\"``) until you enter the corresponding closing "
+"parenthesis (``')'``), the closing brace (``'}'``) or the closing bracket "
+"(``']'``). The :program:`mongo` shell waits for the closing parenthesis, "
+"closing brace, or the closing bracket before evaluating the code, as in the "
+"following example:"
+msgstr ""
+
+#: ../source/mongo.txt:197
+msgid ""
+"You can exit the line continuation mode if you enter two blank lines, as in "
+"the following example:"
+msgstr ""
+
+#: ../source/mongo.txt:208
+msgid "Tab Completion and Other Keyboard Shortcuts"
+msgstr ""
+
+#: ../source/mongo.txt:210
+msgid "The :program:`mongo` shell supports keyboard shortcuts. For example,"
+msgstr ""
+
+#: ../source/mongo.txt:212
+msgid ""
+"Use the up/down arrow keys to scroll through command history. See :ref:`."
+"dbshell <mongo-dbshell-file>` documentation for more information on the ``."
+"dbshell`` file."
+msgstr ""
+
+#: ../source/mongo.txt:216
+msgid ""
+"Use ``<Tab>`` to autocomplete or to list the completion possibilities, as "
+"in the following example which uses ``<Tab>`` to complete the method name "
+"starting with the letter ``'c'``:"
+msgstr ""
+
+#: ../source/mongo.txt:224
+msgid ""
+"Because there are many collection methods starting with the letter ``'c'``, "
+"the ``<Tab>`` will list the various methods that start with ``'c'``."
+msgstr ""
+
+#: ../source/mongo.txt:228
+msgid ""
+"For a full list of the shortcuts, see :ref:`Shell Keyboard Shortcuts <mongo-"
+"keyboard-shortcuts>`"
+msgstr ""
+
+#: ../source/mongo.txt:234
+msgid "Exit the Shell"
+msgstr ""
+
+#: ../source/mongo.txt:236
+msgid "To exit the shell, type ``quit()`` or use the ``<Ctrl-c>`` shortcut."
+msgstr ""
+
+#: ../source/mongo.txt:241
+msgid ":program:`mongo Reference Page <mongo>`"
+msgstr ""
