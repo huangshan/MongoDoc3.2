@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: mongodb-manual 3.2\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-05-31 19:15-0400\n"
-"PO-Revision-Date: 2016-07-05 15:17+0800\n"
+"PO-Revision-Date: 2016-07-05 17:22+0800\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -130,6 +130,14 @@ msgid ""
 "prevent ``.mongorc.js`` from being loaded by using the :option:`--norc` "
 "option."
 msgstr ""
+"Shell开始运行时， :program:`mongo` 将在用户 :envvar:`HOME` 目录下检查名为 :"
+"ref:`.mongorc.js <mongo-mongorc-file>` 的JavaScript文件。如果找到， :"
+"program:`mongo` 将在首次命令行显示之前解释执行 :file:`.mongorc.js` 的内容。"
+"如果你使用shell执行一个JavaScript或表达式，无论是通过命令行使用 :option:`--"
+"eval <mongo --eval>` 选项，或通过指定 :ref:`a .js file to mongo <mongo-"
+"shell-file>` ， :program:`mongo` 都将在JavaScript 处理完成 *之后* 读取 ``."
+"mongorc.js``文件。你可以通过使用 :option:`--norc` 选项禁止加载``.mongorc."
+"js``。"
 
 #: ../source/mongo.txt:86
 msgid "Working with the ``mongo`` Shell"
@@ -240,35 +248,40 @@ msgid ""
 "that match the query. The :program:`mongo` shell will prompt ``Type it`` to "
 "iterate another 20 times."
 msgstr ""
-" :method:`db.collection.find()` 方法返回一个 :term:`cursor` 到结果中；"
+" :method:`db.collection.find()` 方法返回一个 :term:`cursor` 到结果中；然而，"
+"在 :program:`mongo` shell中，如果返回游标没有赋值给使用``var``关键字的变量，"
+"那么游标将自动迭代20次打印前面20条符合查询条件的文档。 :program:`mongo` "
+"shell 将提示``Type it``进行一下一个20条迭代输出。"
 
 #: ../source/mongo.txt:156
 msgid ""
 "To format the printed result, you can add the ``.pretty()`` to the "
 "operation, as in the following:"
-msgstr ""
+msgstr "你可以在操作中添加``.pretty()``，以格式化打印结果，如下例所示："
 
 #: ../source/mongo.txt:163
 msgid ""
 "In addition, you can use the following explicit print methods in the :"
 "program:`mongo` shell:"
-msgstr ""
+msgstr "此外，你可以在 :program:`mongo` shell中使用下面的显式打印方法："
 
 #: ../source/mongo.txt:166
 msgid "``print()`` to print without formatting"
-msgstr ""
+msgstr "``print()`` 无格式打印"
 
 #: ../source/mongo.txt:168
 msgid ""
 "``print(tojson(<obj>))`` to print with :term:`JSON` formatting and "
 "equivalent to ``printjson()``"
 msgstr ""
+"``print(tojson(<obj>))`` 用 :term:`JSON` 格式打印，等效于 ``printjson()``"
 
 #: ../source/mongo.txt:171
 msgid ""
 "``printjson()`` to print with :term:`JSON` formatting and equivalent to "
 "``print(tojson(<obj>))``"
 msgstr ""
+"``printjson()`` 用 :term:`JSON` 格式打印，等效于 ``print(tojson(<obj>))``"
 
 #: ../source/mongo.txt:174
 msgid ""
@@ -276,10 +289,13 @@ msgid ""
 "`mongo` shell, see :doc:`/tutorial/iterate-a-cursor`. See also :ref:`mongo-"
 "shell-help-cursor` for list of cursor help in the :program:`mongo` shell."
 msgstr ""
+" :program:`mongo` shell中游标处理的更多详情和示例，请参看 :doc:`/tutorial/"
+"iterate-a-cursor`。 :program:`mongo` shell中游标列表帮助文档参看 :ref:"
+"`mongo-shell-help-cursor` 。"
 
 #: ../source/mongo.txt:180
 msgid "Multi-line Operations in the ``mongo`` Shell"
-msgstr ""
+msgstr "``mongo`` Shell中的多行操作"
 
 #: ../source/mongo.txt:182
 msgid ""
@@ -291,20 +307,24 @@ msgid ""
 "closing brace, or the closing bracket before evaluating the code, as in the "
 "following example:"
 msgstr ""
+"如果你的代码行以左括号 (``'('``)，左大括号 (``'{'``)或左中括号 (``'['``) 结"
+"束，那么随后的一行将以省略号 (``\"...\"``) 开始，直到你输入对应的右括号 "
+"(``')'``)，右大括号 (``'}'``)或右中括号 (``']'``) 。 :program:`mongo` shell"
+"在执行代码以前将一直等待右括号，右大括号或右中括号，如下例所示："
 
 #: ../source/mongo.txt:197
 msgid ""
 "You can exit the line continuation mode if you enter two blank lines, as in "
 "the following example:"
-msgstr ""
+msgstr "你可以通过输入两行空白行以结束连续行模式，如下例所示："
 
 #: ../source/mongo.txt:208
 msgid "Tab Completion and Other Keyboard Shortcuts"
-msgstr ""
+msgstr "Tab命令补全和其他键盘快捷键"
 
 #: ../source/mongo.txt:210
 msgid "The :program:`mongo` shell supports keyboard shortcuts. For example,"
-msgstr ""
+msgstr " :program:`mongo` shell支持键盘快捷键。例如，"
 
 #: ../source/mongo.txt:212
 msgid ""
@@ -312,6 +332,8 @@ msgid ""
 "dbshell <mongo-dbshell-file>` documentation for more information on the ``."
 "dbshell`` file."
 msgstr ""
+"使用上/下箭头键在历史命令中进行切换。更多信息参见 :ref:`.dbshell <mongo-"
+"dbshell-file>` 文档的``.dbshell``文件节。"
 
 #: ../source/mongo.txt:216
 msgid ""
@@ -319,26 +341,32 @@ msgid ""
 "in the following example which uses ``<Tab>`` to complete the method name "
 "starting with the letter ``'c'``:"
 msgstr ""
+"使用 ``<Tab>`` 键自动补齐或列出可能的补全命令，在下面的示例中，即是使用 "
+"``<Tab>`` 键补全以字母 ``'c'`` 开始的方法名："
 
 #: ../source/mongo.txt:224
 msgid ""
 "Because there are many collection methods starting with the letter ``'c'``, "
 "the ``<Tab>`` will list the various methods that start with ``'c'``."
 msgstr ""
+"由于Shell中有很多以字母``'c'``开始的集合方法，所以使用``<Tab>`` 将列出各种各"
+"样的以``'c'``开头的方法。"
 
 #: ../source/mongo.txt:228
 msgid ""
 "For a full list of the shortcuts, see :ref:`Shell Keyboard Shortcuts <mongo-"
 "keyboard-shortcuts>`"
 msgstr ""
+"完整快捷键方式列表，请参看 :ref:`Shell Keyboard Shortcuts <mongo-keyboard-"
+"shortcuts>`"
 
 #: ../source/mongo.txt:234
 msgid "Exit the Shell"
-msgstr ""
+msgstr "退出Shell"
 
 #: ../source/mongo.txt:236
 msgid "To exit the shell, type ``quit()`` or use the ``<Ctrl-c>`` shortcut."
-msgstr ""
+msgstr "输入``quit()``或使用``<Ctrl-c>``快捷方式退出Shell。"
 
 #: ../source/mongo.txt:241
 msgid ":program:`mongo Reference Page <mongo>`"
